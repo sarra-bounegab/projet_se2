@@ -1,0 +1,23 @@
+Dans notre solution, nous avons utilisé une logique inspirée de l’algorithme de Peterson pour assurer l’accès équitable au tunnel des bus de la ville x et la ville Y. Nous avons utilisé :
+
+- La variable tour pour désigner à quel sens de circulation revient le tour d’exécution de la section critique, ici " le tunnel ".
+
+- Un tableau en_attente[] pour indiquer quels bus attendent de chaque côté, à la manière des flags dans Peterson.
+
+- Un sémaphore mutex pour protéger l’accès aux variables partagées et éviter les conditions de course.
+
+
+DONC : 
+
+nous avons repecte les Règles de Circulation  :
+
+ Pas de croisement : Le tunnel ne peut jamais contenir de bus circulant en sens
+opposés en même temps.
+ Circulation groupée : Plusieurs bus du même sens peuvent utiliser le tunnel
+simultanément.
+ Équité : Aucun des deux sens (X->Y ou Y->X) ne doit monopoliser l’accès au
+tunnel.
+ Allers-retours : Chaque bus effectue 10 trajets aller-retour par jour
+(par exemple, X->Y puis Y->X, répété 10 fois).
+
+
